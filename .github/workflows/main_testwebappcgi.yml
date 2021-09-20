@@ -21,12 +21,13 @@ jobs:
       with:
         dotnet-version: '3.1.301'
         include-prerelease: true
+        working-directory: WebApp/
 
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build webApp/WebApp.sln --configuration Release
 
     - name: dotnet publish
-      run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/WebApp/myapp
+      run: dotnet publish WebApp/WebApp.sln -c Release -o ${{env.DOTNET_ROOT}}/WebApp/myapp
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
