@@ -8,6 +8,15 @@ on:
     branches:
       - main
   workflow_dispatch:
+   inputs:
+      operation:
+        description: 'apply or destroy or remove'
+        required: true
+        default: 'apply'
+      tfstateRGLocation:
+        description: 'resource group location'
+        required: true
+      environment:
 
 jobs:
   build:
